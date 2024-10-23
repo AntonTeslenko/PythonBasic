@@ -17,7 +17,7 @@ for word in lst:
     # Проходимо через кожен символ у слові і додаємо до очищеного слова,
     # якщо він не є знаком пунктуації чи пробілом
     for symbol in word:
-        if symbol not in string.punctuation:
+        if symbol not in string.punctuation and symbol != " ":
             new_word += symbol
 
     # Додаємо очищене слово до хештегу
