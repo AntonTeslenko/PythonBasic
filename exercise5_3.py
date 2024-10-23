@@ -4,24 +4,24 @@ import string
 
 user_string = input("Введіть рядок: ")
 
-# Створюємо очищений рядок
-final_string = ""
-
-# Створюємо хештег
+# Ініціалізуємо хештег з символу '#'
 hashtag = "#"
 
-# Проходимо кожен символ введеного рядка і перевіряємо,
-# чи не є символ пробілом чи знаком пунктуації
-for symbol in user_string:
-    if symbol not in string.punctuation:
-         final_string += symbol
-
 # Перетворюємо очищений рядок у список
-new_string = final_string.split()
+lst = user_string.split()
 
-#  Для створення хештегу
-for word in new_string:
-    hashtag += "".join(word.capitalize())
+# Проходимо через кожне слово у списку
+for word in lst:
+    # Очищене слово
+    new_word = ""
+    # Проходимо через кожен символ у слові і додаємо до очищеного слова,
+    # якщо він не є знаком пунктуації чи пробілом
+    for symbol in word:
+        if symbol not in string.punctuation:
+            new_word += symbol
+
+    # Додаємо очищене слово до хештегу
+    hashtag += new_word.capitalize()
 
 #  Робимо довжину хештегу не більше 140 символів
 if len(hashtag) > 140:
